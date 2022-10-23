@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  background: #00d4f0;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+#stage {
+  margin: 80px auto 30px;
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: gray;
+}
+
+.card-container {
+  cursor: pointer;
+  display: inline-block;
+  width: 50px;
+  height: 60px;
+  margin: 15px 30px;
+  font-size: 24px;
+  font-weight: 24px;
+  font-weight: bold;
+  line-height: 60px;
+  position: relative;
+  perspective: 100px; /* 奥行 */
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d; /* 奥行を子要素に反映 */
+  transition: transform .8s; 
+}
+
+.card.open {
+  transform: rotateY(180deg);
+}
+
+.card-back, .card-front {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  position: absolute;
+  backface-visibility: hidden; /* ひっくり返したものが見えなくなる*/
+}.card-back {
+  background: #03a9f4;
+}.card-front{
+  background: #fff;
+  color: #333;
+  transform: rotateY(180deg);
+}
+
+#btn {
+  margin: 0 auto;
+  width: 200px;
+  padding: 10px;
+  background: #0af;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .5s;
+}
+#btn.visible {
+  opacity: 1;
+}
